@@ -163,6 +163,7 @@ body {
   width: 100% !important;
   border-radius: 10px;
   border: 2px solid white;
+  position: relative;
 }
 
 .text {
@@ -209,6 +210,7 @@ body {
 
 .leaflet-popup-close-button {
   color: white !important;
+  display: none;
 
 }  
 
@@ -217,7 +219,36 @@ body {
 
 }  
 
+.new-close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+  .new-close-button:hover {
+    transform: scale(1.2);
+  }
+
+  .new-close-button img {
+    width: 100%;
+    height: 100%;
+  }
+
 @media only screen and (max-width: 600px) {
+
+  .maptitle {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .maptitle h1 {
+    font-size: 3.5em;
+  }
+
   .leaflet-fixed-pane {
     width: 90%;
     height: 60vh;
@@ -253,6 +284,25 @@ body {
   }
 
 }
+
+@media only screen and (max-width: 400px) {
+
+  .maptitle {
+    width: 74%;
+    margin-left: 13%;
+    margin-right: 13%;
+  }
+  
+  .maptitle h1 {
+    font-size: 2.8em;
+  }
+
+  .maptitle h3 {
+    font-size: 18px;
+  }
+
+}
+
 
 
 

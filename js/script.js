@@ -8,12 +8,6 @@ $(document).ready(function(){ // begin document.ready block
 
 	//jquery code here
 
-	$("#map").click(function(){
-		console.log("CLICK ON A PLUS SIGN!")
-		$(".leaflet-fixed-pane").show()
-	});
-
-
 
 	if ($(window).width() >= 600) {
 	   // alert('Greater than 600');
@@ -86,15 +80,17 @@ $(document).ready(function(){ // begin document.ready block
 	    		pointToLayer: function(feature,latlng){
 
 	    			var plusIcon = L.icon({
-						iconSize: [30, 30],
+						iconSize: [50, 50],
 						iconAnchor: [13, 27],
 						popupAnchor:  [1, -24],
-					    iconUrl: 'img/plus-icon-shaddow-01.png'
+					    iconUrl: 'img/taco-01.png'
 					});
 
 		        	return L.marker(latlng, {
-		        		icon: plusIcon
+		        		icon: plusIcon,
 		        	});
+
+		        	L.DomUtil.addClass(marker._icon, 'plusicon');
 
 	        	},
 				onEachFeature: function (feature, layer) {
@@ -103,11 +99,47 @@ $(document).ready(function(){ // begin document.ready block
 					  pane: 'fixed',
 					  className: 'popup-fixed',
 					  autoPan: false,
-					}).setContent('<div class="textbox"><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
+					}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
 
 				    layer.bindPopup(popup);
+
 			  }
 			}).addTo(map);
+
+			$(".leaflet-marker-icon").click(function(){
+				$(".leaflet-fixed-pane").show()
+				$(this).addClass("selected-icon")
+			});
+
+			$(document.body).on('click', '.selected-icon' ,function(){
+				if( $('.leaflet-fixed-pane').is(':empty') ) {
+					// alert("HAS STUFF")
+
+					$(".leaflet-fixed-pane").hide()
+					$(".selected-icon").removeClass("selected-icon")
+
+				} else {
+					// alert("POPUP IS EMPTY")
+
+					$(".leaflet-fixed-pane").show()
+					
+					
+				}
+				
+				
+				
+			});
+
+
+
+			$(document.body).on('click', '.new-close-button' ,function(){
+				// alert("HIDE POPUP")
+				$(".leaflet-fixed-pane").hide().empty()
+				// $(".selected-icon").removeClass("selected-icon")
+				
+			});
+
+
 
 
 	    });
@@ -185,15 +217,17 @@ $(document).ready(function(){ // begin document.ready block
 	    		pointToLayer: function(feature,latlng){
 
 	    			var plusIcon = L.icon({
-						iconSize: [30, 30],
+						iconSize: [50, 50],
 						iconAnchor: [13, 27],
 						popupAnchor:  [1, -24],
-					    iconUrl: 'img/plus-icon-shaddow-01.png'
+					    iconUrl: 'img/taco-01.png'
 					});
 
 		        	return L.marker(latlng, {
-		        		icon: plusIcon
+		        		icon: plusIcon,
 		        	});
+
+		        	L.DomUtil.addClass(marker._icon, 'plusicon');
 
 	        	},
 				onEachFeature: function (feature, layer) {
@@ -202,14 +236,50 @@ $(document).ready(function(){ // begin document.ready block
 					  pane: 'fixed',
 					  className: 'popup-fixed',
 					  autoPan: false,
-					}).setContent('<div class="textbox"><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
+					}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
 
 				    layer.bindPopup(popup);
+
 			  }
 			}).addTo(map);
 
+			$(".leaflet-marker-icon").click(function(){
+				$(".leaflet-fixed-pane").show()
+				$(this).addClass("selected-icon")
+			});
 
-	    });	   
+			$(document.body).on('click', '.selected-icon' ,function(){
+				if( $('.leaflet-fixed-pane').is(':empty') ) {
+					// alert("HAS STUFF")
+
+					$(".leaflet-fixed-pane").hide()
+					$(".selected-icon").removeClass("selected-icon")
+
+				} else {
+					// alert("POPUP IS EMPTY")
+
+					$(".leaflet-fixed-pane").show()
+					
+					
+				}
+				
+				
+				
+			});
+
+
+
+			$(document.body).on('click', '.new-close-button' ,function(){
+				// alert("HIDE POPUP")
+				$(".leaflet-fixed-pane").hide().empty()
+				// $(".selected-icon").removeClass("selected-icon")
+				
+			});
+
+
+
+
+	    });
 
 	}
 
