@@ -17,7 +17,7 @@ $(document).ready(function(){ // begin document.ready block
 	    bounds = L.latLngBounds(southWest, northEast);
 
 
-		var map = L.map('map', {minZoom: 8}).setView([34.2,-119], 8).setMaxBounds(bounds);
+		var map = L.map('map', {minZoom: 9}).setView([34.1,-118.8], 9).setMaxBounds(bounds);
 		// var pane = map.createPane('fixedbg', document.getElementById('map'));
 		var pane = map.createPane('fixed', document.getElementById('map'));
 		var pane = map.createPane('bgfixed', document.getElementById('map'));
@@ -80,7 +80,7 @@ $(document).ready(function(){ // begin document.ready block
 	    		pointToLayer: function(feature,latlng){
 
 	    			var plusIcon = L.icon({
-						iconSize: [50, 50],
+						iconSize: [40, 40],
 						iconAnchor: [13, 27],
 						popupAnchor:  [1, -24],
 					    iconUrl: 'img/taco-01.png'
@@ -217,7 +217,7 @@ $(document).ready(function(){ // begin document.ready block
 	    		pointToLayer: function(feature,latlng){
 
 	    			var plusIcon = L.icon({
-						iconSize: [50, 50],
+						iconSize: [40, 40],
 						iconAnchor: [13, 27],
 						popupAnchor:  [1, -24],
 					    iconUrl: 'img/taco-01.png'

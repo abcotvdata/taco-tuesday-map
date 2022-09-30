@@ -33,7 +33,7 @@ body {
 }
 
   .maptitle h1 {
-    font-size: 4em;
+    font-size: 5em;
     margin: 0px;
   }
 
@@ -235,6 +235,18 @@ body {
   .new-close-button img {
     width: 100%;
     height: 100%;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 5px;
+    right: 0px;
+    text-align: right;
+    font-size: 14px;
+    font-style: italic;
+    z-index: 1000;
+    padding: 5px;
+    color: white;
   }
 
 @media only screen and (max-width: 600px) {
