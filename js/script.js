@@ -80,7 +80,7 @@ $(document).ready(function(){ // begin document.ready block
 	    		pointToLayer: function(feature,latlng){
 
 	    			var plusIcon = L.icon({
-						iconSize: [40, 40],
+						iconSize: [30, 30],
 						iconAnchor: [13, 27],
 						popupAnchor:  [1, -24],
 					    iconUrl: 'img/taco-01.png'
