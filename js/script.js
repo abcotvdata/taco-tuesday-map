@@ -95,11 +95,25 @@ $(document).ready(function(){ // begin document.ready block
 	        	},
 				onEachFeature: function (feature, layer) {
 
-				  	var popup = L.popup({
-					  pane: 'fixed',
-					  className: 'popup-fixed',
-					  autoPan: false,
-					}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
+					if (feature.properties.link_to_full_story == "NOTYET") {
+
+						var popup = L.popup({
+					  	pane: 'fixed',
+					  	className: 'popup-fixed',
+					  	autoPan: false,
+						}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +'</p></div></div><div class="video nostory"><h3>STORY COMING SOON!</h3></div>');
+
+					} else {
+
+						var popup = L.popup({
+					  	pane: 'fixed',
+					  	className: 'popup-fixed',
+					  	autoPan: false,
+						}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
+
+					}
+
+				  	
 
 				    layer.bindPopup(popup);
 
@@ -232,11 +246,23 @@ $(document).ready(function(){ // begin document.ready block
 	        	},
 				onEachFeature: function (feature, layer) {
 
-				  	var popup = L.popup({
-					  pane: 'fixed',
-					  className: 'popup-fixed',
-					  autoPan: false,
-					}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
+				  	if (feature.properties.link_to_full_story == "NOTYET") {
+
+						var popup = L.popup({
+					  	pane: 'fixed',
+					  	className: 'popup-fixed',
+					  	autoPan: false,
+						}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +'</p></div></div><div class="video nostory"><h3>STORY COMING SOON!</h3></div>');
+
+					} else {
+
+						var popup = L.popup({
+					  	pane: 'fixed',
+					  	className: 'popup-fixed',
+					  	autoPan: false,
+						}).setContent('<div class="textbox"><div class="new-close-button"><img src="img/exit.png"></div><div class="title"><h3>'+feature.properties.headline+'</h3></div><div class="text"><p> By ' + feature.properties.reporter_producer + '<br>' + feature.properties.street_address + '<br>' + feature.properties.city_state + ', '+ feature.properties.zip +' <br> <a href="'+feature.properties.link_to_full_story+'" target="_blank">Click here for the full story</a></p></div></div><div class="video"><iframe src="'+feature.properties.link_to_video+'"></iframe></div>');
+
+					}
 
 				    layer.bindPopup(popup);
 
